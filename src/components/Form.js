@@ -12,7 +12,8 @@ const handleChanges = event => {
 
   const submitForm = event => {
     event.preventDefault();
-    props.addToMember(person); // walk through this one more time
+    props.addToMember(person); 
+    setPerson({name:"", email: "", role: ""})
   }
 
     

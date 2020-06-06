@@ -9,7 +9,7 @@ import './App.css';
 function App() {
 
     const [member, setMember] = useState([{name: "Theresa", email: "oddyseyt@gmail.com", role: "slacker"}] );
-    const addToMember = person => {setMember([...setMember,person])}
+    const addToMember = person => {setMember([...member,person])}
     return (
       <div className="App">
       <h1>Team Members</h1>
