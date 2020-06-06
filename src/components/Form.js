@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { useState } from "react";
+
 
 const Form = props => {
-    console.log(props)
-    return (
-      
-        <div className = "member-list">
-            <MemberDetails member={props.member}/>
-        </div>
-    )
-}
+    const [person, setPerson] = useState([{name: "", email: "", role: ""}]);
+    
 
 const handleChanges = event => {
 
-    setPerson({ ...member, [event.target.name]: event.target.value }); // 
+    setPerson({ ...person, [event.target.name]: event.target.value });  
   };
 
+  const submitForm = event => {
+    event.preventDefault();
+    props.addToMember(person); // walk through this one more time
+  }
 
-function MemberDetails({member}) {
+    
     return (
         <div className = "member_info">
             <h2>Member Info</h2>
@@ -25,16 +24,16 @@ function MemberDetails({member}) {
 
          <label htmlFor="name">
            Full Name
-          <input id="name" type="text" placeholder="Full Name" onChange={handleChanges} value={member.name} name="name" />
+          <input id="name" type="text" placeholder="Full Name" onChange={handleChanges} value={person.name} name="name" />
          </label>
         
    
          <label htmlFor="email">email</label>
-        <textarea id="email" type="email" placeholder="email address" onChange={handleChanges} value={member.email} name="email" />
+        <textarea id="email" type="email" placeholder="email address" onChange={handleChanges} value={person.email} name="email" />
    
         <label htmlFor="role">
            Your Role
-          <input id="role" type="text" placeholder="Role" onChange={handleChanges} value={member.role} name="role" />
+          <input id="role" type="text" placeholder="Role" onChange={handleChanges} value={person.role} name="role" />
          </label>
 
          
@@ -45,5 +44,6 @@ function MemberDetails({member}) {
     )
     
 }
+
 
 export default Form;
