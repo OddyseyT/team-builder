@@ -1,12 +1,18 @@
 import React from 'react';
 
 const Form = props => {
-
+    console.log(props)
+    return (
+      
+        <div className = "member-list">
+            <MemberDetails member={props.member}/>
+        </div>
+    )
 }
 
 const handleChanges = event => {
 
-    setNote({ ...note, [event.target.name]: event.target.value }); // 
+    setPerson({ ...member, [event.target.name]: event.target.value }); // 
   };
 
 
@@ -19,21 +25,21 @@ function MemberDetails({member}) {
 
          <label htmlFor="name">
            Full Name
-          <input id="name" type="text" placeholder="Full Name" onChange={handleChanges} value={note.name} name="name" />
+          <input id="name" type="text" placeholder="Full Name" onChange={handleChanges} value={member.name} name="name" />
          </label>
         
    
          <label htmlFor="email">email</label>
-        <textarea id="email" type="email" placeholder="email address" onChange={handleChanges} value={note.email} name="email" />
+        <textarea id="email" type="email" placeholder="email address" onChange={handleChanges} value={member.email} name="email" />
    
         <label htmlFor="role">
            Your Role
-          <input id="role" type="text" placeholder="Role" onChange={handleChanges} value={note.role} name="role" />
+          <input id="role" type="text" placeholder="Role" onChange={handleChanges} value={member.role} name="role" />
          </label>
 
          
    
-         <button type="submit">Add note</button>
+         <button type="submit">Add member</button>
        </form>
     </div>
     )

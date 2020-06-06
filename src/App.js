@@ -6,10 +6,11 @@ import './App.css';
 function App() {
 
     const [member, setMember] = useState([] );
+    const addToMember = person => {setMember([...setMember,person])}
     return (
       <div className="App">
       <h1>Team Members</h1>
-      <Form  />
+      <Form member={member}/>
       
     </div>
   );
